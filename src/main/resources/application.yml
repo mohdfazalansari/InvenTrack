@@ -3,8 +3,8 @@ spring:
     name: inventrack
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/inventrack}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    username: "postgres"
+    password: "root"
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

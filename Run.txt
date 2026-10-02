@@ -1,0 +1,46 @@
+Here is the complete step-by-step guide to run both the backend and frontend for InvenTrack:
+
+1. Database Setup (PostgreSQL)
+The backend expects a PostgreSQL database running on port 5432.
+
+Ensure the PostgreSQL database named inventrack exists:
+sql
+CREATE DATABASE inventrack;
+The backend reads your credentials from environment variables defined in 
+
+application.yml
+:
+DB_USERNAME
+DB_PASSWORD
+SPRING_DATASOURCE_URL (defaults to jdbc:postgresql://localhost:5432/inventrack)
+2. Start the Backend (Spring Boot)
+Open a terminal in the root directory (f:\InvenTrack) and run:
+
+powershell
+# Set your PostgreSQL credentials in PowerShell
+$env:DB_USERNAME="postgres"
+$env:DB_PASSWORD="your_postgres_password"
+# Launch Spring Boot
+mvn spring-boot:run
+API Base URL: http://localhost:8080
+Swagger UI / API Docs: http://localhost:8080/swagger-ui.html
+NOTE
+
+On startup, Spring Boot automatically seeds a default administrator account:
+
+Username: admin
+Password: adminPassword123!
+3. Start the Frontend (React + Vite)
+Open a second terminal, navigate into the 
+
+frontend
+ folder, and run:
+
+powershell
+cd f:\InvenTrack\frontend
+# Start Vite dev server (dependencies are already installed in node_modules)
+npm run dev
+Frontend UI: http://localhost:5173
+4. Logging In
+Open http://localhost:5173 in your browser.
+Sign in with the default admin credentials (admin / adminPassword123!) or create a new user via the Register page (newly registered users default to the STAFF role).
